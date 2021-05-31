@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    # redirect_to user_path(@user)
+    redirect_to user_path(@user)
   end
 
   def edit
@@ -25,12 +25,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    # redirect_to user_path(@user)
+    redirect_to user_path(@user)
   end
 
   def destroy
     @user.destroy
-    # redirect_to users_path
+    redirect_to users_path
   end
 
   def configure_permitted_parameters
