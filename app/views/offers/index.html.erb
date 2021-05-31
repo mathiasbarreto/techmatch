@@ -1,0 +1,6 @@
+<h1>You are on the Offers index page</h1>
+<% @offers.each do |offer| %>
+<%= link_to 'Offer', offer_path(offer) %>
+<% end %>
+
+<p><%= link_to 'New offer', new_offer_path %></p>
