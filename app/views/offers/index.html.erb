@@ -13,5 +13,7 @@
       </div>
     <% end %>
   </ul>
-  <%= link_to_if @current_user, "Add Offer", new_offer_path(@current_user), class: "btn btn-primary" %>
+  <% if policy(Offer).create? %>
+    <%= link_to "Add Offer", new_offer_path(current_user), class: "btn btn-primary" %>
+  <% end %>
 </div>

@@ -6,18 +6,15 @@
       <p class="card-text"><%= @offer.description %></p>
       <h6 class="card-subtitle mb-2 text-muted">$<%= @offer.price %></h6>
       <!-- Link below won't work, job routes and controller still to do -->
-      <% if @current_user.id != @offer.user_id %>
-        <%= button_to 'Accept Offer', user_jobs_path(@current_user), params: { offer_id: @offer.id } %>
+      <% if current_user.id != @offer.user_id %>
+        <%= button_to 'Accept Offer', user_jobs_path(current_user), params: { offer_id: @offer.id } %>
       <% end %>
-      <% if @current_user.id == @offer.user_id %>
+      <% if current_user.id == @offer.user_id %>
         <%= link_to 'Edit', edit_offer_path(@offer) %> |
         <%= link_to 'Remove', offer_path, method: :delete %>
       <% end %>
     </div>
   </div>
-
-  <!-- # Devise probably has some helpers to avoid the hack below. Also, link_to_if still shows the text, bad solution -->
-
   <%= link_to 'Back', offers_path, class: "btn btn-primary" %>
 
 </div>

@@ -1,10 +1,9 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:index, :show, :edit, :update, :destroy] # Set user will be used to filter out buttons. Edit, delete etc. We could used login instead
 
   def index
-    @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
   def show
@@ -12,11 +11,13 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    authorize(@offer)
   end
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.user_id = current_user.id
+    authorize(@offer)
+    @offer.user = current_user
     if @offer.save
       redirect_to offer_url(@offer), notice: 'Offer was successfully created.'
     else
@@ -48,9 +49,7 @@ class OffersController < ApplicationController
 
   def set_offer
     @offer = Offer.find(params[:id])
+    authorize(@offer)
   end
 
-  def set_user
-    @current_user = current_user
-  end
 end
