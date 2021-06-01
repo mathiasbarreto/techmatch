@@ -1,4 +1,23 @@
-<h1> All jobs</h1> 
+<div class="container my-4">
+  <h1>All accepted jobs</h1>
+  <ul class="list-group mb-4 pt-3">
+    <% @jobs.each do |job| %>
+      <div class="card-product mt-3">
+        <div class="card-product-infos">
+          <h4><%= job.offer.title %></h3>
+          <p><strong>Freelancer:</strong><br> <!-- resolver link aqui pra perfil do freela -->
+            <%= job.user.username %>
+          </p>
+          <p><strong>Preço</strong></p>
+          R$ <%= job.offer.price %>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
+<!-- table version, if we like it more
+  <h1>All accepted jobs</h1>
 <table class = 'table table-striped'>
   <%= current_user.username %>
   <thead>
@@ -22,3 +41,5 @@
   <% end %>
   </tbody>
 </table>
+
+-->
