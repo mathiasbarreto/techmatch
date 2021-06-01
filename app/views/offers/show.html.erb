@@ -10,4 +10,5 @@
   </div>
 
   <%= link_to 'Edit this offer', edit_offer_path(@offer) %>
+  <%= link_to_if @current_user, 'Remove this offer', offer_path, method: :delete %>
 </div>

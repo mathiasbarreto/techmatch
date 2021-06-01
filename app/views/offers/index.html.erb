@@ -5,7 +5,5 @@
       <li class="list-group-item mb-2"><%= link_to offer.title, offer_path(offer) %></li>
     <% end %>
   </ul>
-  <%= link_to "Add Offer", new_offer_path, class: "btn btn-primary" %>
+  <%= link_to_if @current_user, "Add Offer", new_offer_path(@current_user), class: "btn btn-primary" %>
 </div>
-
-

@@ -1,12 +1,13 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy] 
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy] # Set user will be used to filter out buttons. Edit, delete etc. We could used login instead
 
   def index
     @offers = Offer.all
   end
 
   def show
-    @offer = Offer.find(params[:id])
   end
 
   def new
@@ -17,14 +18,13 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
     if @offer.save
-      redirect_to offers_path, notice: 'Offer was successfully created.'
+      redirect_to offer_url(@offer), notice: 'Offer was successfully created.'
     else
       render :new
     end
   end
 
   def edit
-    @offer = Offer.find([:id])
   end
 
   def update
@@ -36,13 +36,21 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    @offer = Offer.find(params[:id])
     @offer.destroy
+    redirect_to offers_url
   end
 
   private
 
   def offer_params
     params.require(:offer).permit(:title, :description, :price)
+  end
+
+  def set_offer
+    @offer = Offer.find(params[:id])
+  end
+
+  def set_user
+    @current_user = current_user
   end
 end
