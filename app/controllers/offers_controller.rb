@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @offers = Offer.all
     @current_user = current_user
@@ -14,9 +16,9 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.user_id = current_user
+    @offer.user_id = current_user.id
     if @offer.save
-      redirect_to new_user_offer_url(@offer)
+      redirect_to new_user_offer_url(@offer), notice: 'Offer was successfully created.'
     else
       render :new
     end
@@ -42,6 +44,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:price)
+    params.require(:offer).permit(:title, :description, :price)
   end
 end
