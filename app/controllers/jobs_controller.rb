@@ -2,18 +2,19 @@ require 'date'
 
 class JobsController < ApplicationController
   def index
-    skip_policy_scope
-    @jobs = Job.all
+    @jobs = policy_scope(Job)
   end
 
   def show
     @job = Job.find(params[:id])
+    authorize(@job)
   end
 
   def create
     @job = Job.new(job_params)
     @job.offer = Offer.find(params[:offer_id])
     @job.start_date = Date.today
+    authorize(@job)
     if @job.save
       redirect_to jobs_path
     else

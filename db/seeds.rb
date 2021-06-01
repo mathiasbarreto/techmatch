@@ -10,7 +10,7 @@ puts 'Creating 10 users + offers...'
   user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Name.unique.first_name,
-    password: Faker::Alphanumeric.alpha(number: 6)
+    password: '123123'
   )
   
 
