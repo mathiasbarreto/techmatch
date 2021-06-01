@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   def index
     @offers = Offer.all
+    @current_user = current_user
   end
 
   def show
@@ -15,7 +16,7 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user
     if @offer.save
-      redirect_to offer_url(@offer)
+      redirect_to new_user_offer_url(@offer)
     else
       render :new
     end
