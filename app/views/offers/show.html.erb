@@ -1,4 +1,13 @@
-<h1>You are in an offer show page</h1>
-<%= @offer.inspect %>
+<div class="container">
+  <h1>You are in an offer show page</h1>
+  <div class="card my-4" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @offer.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">$<%= @offer.price %></h6>
+      <p class="card-text"><%= @offer.description %></p>
+      <a href="#" class="card-link">Accept Offer</a>
+    </div>
+  </div>
 
-<%= link_to 'Edit this offer', edit_offer_path(@offer) %>
+  <%= link_to 'Edit this offer', edit_offer_path(@offer) %>
+</div>

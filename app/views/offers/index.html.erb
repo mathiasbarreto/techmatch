@@ -1,6 +1,11 @@
-<div class="container">
+<div class="container my-4">
   <h1>You are on the Offers index page</h1>
-  <% @offers.each do |offer| %>
-    <%= link_to offer.price, offer_path(offer) %>
-  <% end %>
+  <ul class="list-group mb-4 pt-3">
+    <% @offers.each do |offer| %>
+      <li class="list-group-item mb-2"><%= link_to offer.title, offer_path(offer) %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Add Offer", new_offer_path, class: "btn btn-primary" %>
 </div>
+
+

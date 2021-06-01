@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container my-4">
   <h1>You are on the Users index page</h1>
-  <% @users.each do |user| %>
-    <%= link_to user.username, user_path(user) %>
-  <% end %>
+  <ul class="list-group mb-4 pt-3">
+    <% @users.each do |user| %>
+      <li class="list-group-item mb-2"><%= link_to user.username, user_path(user) %></li>
+    <% end %>
+  </ul>
 </div>
