@@ -1,4 +1,26 @@
 <div class="container">
-  <h1><%= @user.username %></h1>
-  <%= link_to 'Back', users_path %>
+  <ul class="list-group mb-4 pt-3">
+    <div class="card-profile mt-3">
+      <div class="card-profile-infos">
+        <h1><%= @user.username %></h1>
+      </div>
+    </div>
+    <div class="card-profile mt-3">
+      <div class="card-profile-infos">
+        <h2>Skills:</h2>
+        <%= @user.skills %>
+      </div>
+    </div>
+    <div class="card-profile mt-3">
+      <div class="card-profile-infos">
+        <h2>All Jobs:</h2>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </div>
+    </div>
+  </ul>
+  <%= link_to 'Back', users_path, class: "btn btn-primary" %>
 </div>
