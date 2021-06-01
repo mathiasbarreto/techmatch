@@ -2,6 +2,7 @@ require 'date'
 
 class JobsController < ApplicationController
   def index
+    skip_policy_scope
     @jobs = Job.all
   end
 

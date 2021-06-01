@@ -2,8 +2,18 @@
   <h1>You are on the Offers index page</h1>
   <ul class="list-group mb-4 pt-3">
     <% @offers.each do |offer| %>
-      <li class="list-group-item mb-2"><%= link_to offer.title, offer_path(offer) %></li>
+      <div class="card-product mt-3">
+        <div class="card-product-infos">
+          <li class="list-group-item mb-2">
+            <h2><%=link_to offer.title, offer_path(offer)%></h2>
+          </li>
+          <p><strong>Offer description:</strong></p>
+          <%=  offer.description%>
+        </div>
+      </div>
     <% end %>
   </ul>
-  <%= link_to_if @current_user, "Add Offer", new_offer_path(@current_user), class: "btn btn-primary" %>
+  <% if policy(Offer).create? %>
+    <%= link_to "Add Offer", new_offer_path(current_user), class: "btn btn-primary" %>
+  <% end %>
 </div>
