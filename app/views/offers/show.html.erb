@@ -14,8 +14,9 @@
 
   <!-- # Devise probably has some helpers to avoid the hack below. Also, link_to_if still shows the text, bad solution -->
   <% if @current_user.id == @offer.user_id %>
-    <%= link_to 'Edit this offer', edit_offer_path(@offer) %>
-    <%= link_to 'Remove this offer', offer_path, method: :delete %>
+    <%= link_to 'Edit this offer', edit_offer_path(@offer) %> |
+    <%= link_to 'Remove this offer', offer_path, method: :delete %> |
+    <%= link_to 'Back', offers_path %>
   <% end %>
 
 </div>
