@@ -1,8 +1,17 @@
 <div class="container my-4">
-  <h1>You are on the Users index page</h1>
+  <h1>Freelancers profiles</h1>
   <ul class="list-group mb-4 pt-3">
     <% @users.each do |user| %>
-      <li class="list-group-item mb-2"><%= link_to user.username, user_path(user) %></li>
+      <div class="card-product mt-3">
+        <div class="card-product-infos">
+          <h3><%= link_to user.username, user_path(user), style: "text-decoration: none;" %></h3>
+          <p><strong>Skills:</strong><br>
+            <%=user.skills%>
+          </p>
+          <p><strong>Profile Summary:</strong></p>
+          <%=user.skills%>
+        </div>
+      </div>
     <% end %>
   </ul>
 </div>
