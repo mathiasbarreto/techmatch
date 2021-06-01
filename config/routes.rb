@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :jobs, only: [:create]
   end
   resources :offers
-  resources :jobs, only: [:index]
+  resources :jobs, only: [:index, :show]
   resources :my_offers, only: [:index]
   resources :my_jobs, only: [:index]
   resource :my_profiles, only: [:show]
