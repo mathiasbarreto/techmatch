@@ -7,19 +7,12 @@ class JobsController < ApplicationController
   end
 
   def show
-    skip_authorization
-    # @job = Job.new
     @job = Job.find(params[:id])
   end
 
   def create
-    skip_authorization
-    # @review = Review.new(review_params)
-    # @review = Job.find(params[:job_id])
-    # @review.job = @review
-    # @review.save
-    # redirect_to jobs_path(@job)
-    @job = Job.new(user_id: params[:user_id], offer_id: params[:offer_id])
+    @job = Job.new(job_params)
+    @job.offer = Offer.find(params[:offer_id])
     @job.start_date = Date.today
     if @job.save
       redirect_to jobs_path
@@ -31,6 +24,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:review).permit(:contractor_rating, :contractor_review, :employer_review, :employer_rating, :start_date, :user_id, :employer_id)
+    params.require(:job).permit(:contractor_rating, :contractor_review, :employer_review, :employer_rating, :start_date)
   end
 end

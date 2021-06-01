@@ -1,5 +1,24 @@
-<ul>
+<h1> All jobs</h1> 
+<table class = 'table'>
+  <%= current_user.username %>
+  <thead>
+    <tr>
+      <th>Nome do projeto</th>
+      <th>Freelancer</th>
+      <th>Descrição</th>
+      <th>Data de início</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @jobs.each do |job| %>
-    <li><%= job.inspect %></li>
+  <tr> 
+    <td><%= job.offer.title %>  </td> 
+    <td> <%= job.user.username %> </td>
+    <td> <%= job.offer.description %> </td>
+    <td><%= job.start_date %> </td>
+    <td> R$ <%=job.offer.price %> </td>
+  </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
