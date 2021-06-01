@@ -2,15 +2,18 @@ require 'date'
 
 class JobsController < ApplicationController
   def index
+    skip_policy_scope
     @jobs = Job.all
   end
 
   def show
+    skip_authorization
     # @job = Job.new
     @job = Job.find(params[:id])
   end
 
   def create
+    skip_authorization
     # @review = Review.new(review_params)
     # @review = Job.find(params[:job_id])
     # @review.job = @review
