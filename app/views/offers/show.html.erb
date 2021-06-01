@@ -1,21 +1,20 @@
-<div class="container">
-  <h1>You are in an offer show page</h1>
+<div class="container mt-3">
+  <h1><%= @offer.title %> details</h1>
   <div class="card my-4" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"><%= @offer.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted">$<%= @offer.price %></h6>
       <p class="card-text"><%= @offer.description %></p>
+      <h6 class="card-subtitle mb-2 text-muted">$<%= @offer.price %></h6>
       <!-- Link below won't work, job routes and controller still to do -->
-      <% if @current_user.id != @offer.user_id %>
+      <% if current_user.id != @offer.user_id %>
         <%= button_to 'Accept Offer', user_jobs_path(current_user), params: { offer_id: @offer.id } %>
+      <% end %>
+      <% if current_user.id == @offer.user_id %>
+        <%= link_to 'Edit', edit_offer_path(@offer) %> |
+        <%= link_to 'Remove', offer_path, method: :delete %>
       <% end %>
     </div>
   </div>
+  <%= link_to 'Back', offers_path, class: "btn btn-primary" %>
 
-  <!-- # Devise probably has some helpers to avoid the hack below. Also, link_to_if still shows the text, bad solution -->
-  <% if @current_user.id == @offer.user_id %>
-    <%= link_to 'Edit this offer', edit_offer_path(@offer) %> |
-    <%= link_to 'Remove this offer', offer_path, method: :delete %> |
-    <%= link_to 'Back', offers_path %>
-  <% end %>
 </div>
