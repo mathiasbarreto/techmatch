@@ -1,6 +1,7 @@
 <div class="container my-5 pt-2">
   <div class="card">
     <div class="card-header">
+      <%#= cl_image_path registrations.photo.key, height: 50, crop: :fill if registrations.photo.attached?%>
       Account
     </div>
     <div class="card-body">
@@ -10,6 +11,8 @@
       <p class="card-text mb-4"><%= current_user.email %></p>
       <h5 class="card-title">Skills</h5>
       <p class="card-text mb-4"><%= current_user.skills %></p>
+      <h5 class="card-title">Profile summary</h5>
+      <p class="card-text mb-4"><%= current_user.profile_summary %></p>
       <%= link_to 'Edit Account', edit_user_registration_path, class: "btn", style: "color: white"  %>
       <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     </div>
