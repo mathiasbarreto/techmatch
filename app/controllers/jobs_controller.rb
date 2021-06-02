@@ -35,7 +35,7 @@ class JobsController < ApplicationController
     if @job.update(job_params)
       redirect_to job_path(@job)
     else
-      render :edit
+      render :review
     end
   end
 

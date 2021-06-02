@@ -3,9 +3,9 @@ class Offer < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
 
   def fulfilled?
-    Job.exists?(offer_id: self.id)
+    Job.exists?(offer_id: id)
   end
 end
