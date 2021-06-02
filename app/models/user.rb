@@ -35,10 +35,4 @@ class User < ApplicationRecord
       "robot.png"
     end
   end
-
-  # <% if current_user.photo.attached? %>
-  #           <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-  #         <% else %>
-  #           <%= image_tag "robot.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-  #         <% end %>
 end
