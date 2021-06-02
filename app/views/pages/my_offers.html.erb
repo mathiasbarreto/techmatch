@@ -1,8 +1,19 @@
 <div class="container my-4">
   <h1>My Offers</h1>
   <ul class="list-group mb-4 pt-3">
-    <%# @jobs.each do |jobs| %>
-      <li class="list-group-item mb-2">Exemplo</li>
-    <%# end %>
+    <% @offers.each do |offer| %>
+      <div class="card-product mt-3">
+        <div class="card-product-infos">
+          <li class="list-group-item mb-2">
+            <h2><%=link_to offer.title, offer_path(offer)%></h2>
+          </li>
+          <p><strong>Offer description:</strong></p>
+          <%=  offer.description %>
+        </div>
+      </div>
+    <% end %>
   </ul>
+  <% if policy(Offer).create? %>
+    <%= link_to "Add Offer", new_offer_path(current_user), class: "btn btn-primary" %>
+  <% end %>
 </div>

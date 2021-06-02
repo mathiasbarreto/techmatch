@@ -1,6 +1,14 @@
-<div class="container my-4">
-  <h1>My profile</h1>
-  <%= current_user.username %>
-  <%= current_user.email %>
-  <%= link_to 'Delete Account', '#' %>
+<div class="container my-5 pt-2">
+  <div class="card">
+    <div class="card-header">
+      Account
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Username</h5>
+      <p class="card-text"><%= current_user.username %></p>
+      <h5 class="card-title">Email</h5>
+      <p class="card-text mb-4"><%= current_user.email %></p>
+      <%= link_to 'Close Account', destroy_user_session_path, method: :delete, class: "mt-2" %>
+    </div>
+  </div>
 </div>
