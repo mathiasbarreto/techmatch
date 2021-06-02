@@ -29,6 +29,7 @@ class OffersController < ApplicationController
   end
 
   def update
+    authorize(@offer)
     if @offer.update(offer_params)
       redirect_to offer_path(@offer)
     else
@@ -37,6 +38,7 @@ class OffersController < ApplicationController
   end
 
   def destroy
+    authorize(@offer)
     @offer.destroy
     redirect_to offers_url
   end
