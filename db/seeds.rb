@@ -12,9 +12,8 @@ puts 'Creating 10 users + offers...'
     username: Faker::Name.unique.first_name,
     password: '123123',
     skills: "#{%w[python ruby javascript].sample} | #{%w[HTML CSS].sample} | #{%w[Sqlite3 PostgreSQL].sample}"
+    profile_summary:
   )
-
-
   offer = Offer.create!(
     title: Faker::Name.unique.last_name,
     description: Faker::Company.catch_phrase,
