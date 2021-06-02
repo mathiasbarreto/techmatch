@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="row">
     <h1>Job Details</h1>
-    <p><%= link_to 'Back', jobs_path, class: "btn btn-primary ml-4" %></p>
+    <p><%= link_to 'Back', :back, class: "btn btn-primary ml-4" %></p>
   </div>
   <ul class="list-group mb-4 pt-3">
     <div class="card-profile mt-3">
@@ -11,38 +11,36 @@
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2> Descrição da Job </h2>
+        <h2> Job description </h2>
         <br>
         <%= @job.offer.description  %>
       </div>
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2><%= link_to 'Freelancer', show_user_path(@job.user) %> </h2>
+        <h2>Freelancer</h2>
         <br>
-         <%= @job.user.username %>
       </div>
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2> Preço </h2>
+        <h2> Price </h2>
         <br>
-        R$ <%= @job.offer.price  %>
+        U$ <%= @job.offer.price  %>
       </div>
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2> Data de início </h2>
+        <h2> Start Date </h2>
         <br>
          <%= @job.start_date %>
       </div>
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2> Finalizou o Trabalho? </h2>
         <br>
-         <%= @job.done? %>
-         <%= link_to 'Concluir trabalho', edit_job_path(@job), class: "btn btn-primary" %>
+        <%= link_to @job.done? ? 'Job is done, click here to add/edit a review' : 'Mark job as finished',
+            edit_job_path(@job), class: "btn btn-primary" %>
       </div>
     </div>
     </div>
