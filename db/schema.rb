@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_152244) do
     t.float "employer_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "finish_date"
+    t.boolean "job_done"
     t.index ["offer_id"], name: "index_jobs_on_offer_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
