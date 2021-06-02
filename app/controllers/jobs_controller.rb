@@ -18,9 +18,10 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(user: current_user)
+    authorize(@job)
     @job.offer = Offer.find(params[:offer_id])
     @job.start_date = Date.today
-    authorize(@job)
+    
     if @job.save
       redirect_to job_path(@job)
     else
