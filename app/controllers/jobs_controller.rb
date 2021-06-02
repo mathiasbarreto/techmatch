@@ -18,10 +18,9 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(user: current_user)
-    authorize(@job)
     @job.offer = Offer.find(params[:offer_id])
     @job.start_date = Date.today
-    
+    authorize(@job)
     if @job.save
       redirect_to job_path(@job)
     else
@@ -48,8 +47,11 @@ class JobsController < ApplicationController
 
   def job_params
     if @job.user == current_user
-      return params.require(:job).permit(:employer_review, :employer_rating)
+      params.require(:job).permit(:employer_review, :employer_rating)
+    elsif @job.offer.user == current_user
+      params.require(:job).permit(:contractor_review, :contractor_rating)
+    else
+      raise
     end
-    params.require(:job).permit(:contractor_review, :contractor_rating)
   end
 end
