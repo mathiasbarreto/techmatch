@@ -18,9 +18,9 @@
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2><%= link_to 'Freelancer', show_user_path(@job.user) %> </h2>
+        <h2>Freelancer</h2>
         <br>
-         <%= @job.user.username %>
+         <%= link_to @job.user.username, show_user_path(@job.user) %>
       </div>
     </div>
     <div class="card-profile mt-3">
@@ -41,7 +41,6 @@
       <div class="card-profile-infos">
         <h2> Finalizou o Trabalho? </h2>
         <br>
-         <%= @job.done? %>
          <%= link_to 'Concluir trabalho', edit_job_path(@job), class: "btn btn-primary" %>
       </div>
     </div>
