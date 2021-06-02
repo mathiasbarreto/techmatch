@@ -1,5 +1,8 @@
-<h1>Job Details</h1>
-<div class="container">
+<div class="container my-5">
+  <div class="row">
+    <h1>Job Details</h1>
+    <p><%= link_to 'Back', jobs_path, class: "btn btn-primary ml-4" %></p>
+  </div>
   <ul class="list-group mb-4 pt-3">
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
@@ -38,13 +41,11 @@
       <div class="card-profile-infos">
         <h2> Finalizou o Trabalho? </h2>
         <br>
-         <%= @job.job_done? %> <!-- criar dropdown e rota aqui mandar p/ a tela e avisar ao usuário que se ele -->
-         <%= link_to 'Submeter Review', offers_path, class: "btn btn-primary" %>
+         <%= @job.done? %>
+         <%= link_to 'Concluir trabalho', edit_job_path(@job), class: "btn btn-primary" %>
       </div>
     </div>
     </div>
   </ul>
-  <%= link_to 'Review', review_employer_job_path(@job)%>
-  <%= link_to 'Back', jobs_path, class: "btn btn-primary" %>
 </div>
 

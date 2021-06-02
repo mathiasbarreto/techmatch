@@ -4,8 +4,8 @@
     <% @jobs.each do |job| %>
       <div class="card-product mt-3">
         <div class="card-product-infos">
-          <h4><%= job.offer.title %></h3>
           <p><strong>Freelancer:</strong><br> <!-- resolver link aqui pra perfil do freela -->
+            <h4><%= link_to job.offer.title, job_path(job) %></h4>
             <%= job.user.username %>
           </p>
           <p><strong>Preço</strong></p>
