@@ -3,7 +3,7 @@
   <ul class="list-group mb-4 pt-3">
     <% @users.each do |user| %>
       <div class="card-product pl-3 mt-3">
-        <img class="avatar-square" alt="avatar-square" src="https://source.unsplash.com/user/erondu" />
+        <img class="avatar-square" alt="avatar-square" src="https://loremflickr.com/320/240?profile=<%= user.id %>" />
         <div class="card-product-infos">
           <h3><%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %></h3>
           <p><strong>Skills:</strong><br>
