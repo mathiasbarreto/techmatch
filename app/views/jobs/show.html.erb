@@ -15,7 +15,7 @@
     </div>
     <div class="card-profile mt-3">
       <div class="card-profile-infos">
-        <h2><%= link_to 'Freelancer', user_path %> </h2> <!-- entender pq não tá funcionando -->
+        <h2><%= link_to 'Freelancer', show_user_path(@job.user) %> </h2>
         <br>
          <%= @job.user.username %>
       </div>
@@ -34,7 +34,17 @@
          <%= @job.start_date %>
       </div>
     </div>
+    <div class="card-profile mt-3">
+      <div class="card-profile-infos">
+        <h2> Finalizou o Trabalho? </h2>
+        <br>
+         <%= @job.job_done? %> <!-- criar dropdown e rota aqui mandar p/ a tela e avisar ao usuário que se ele -->
+         <%= link_to 'Submeter Review', offers_path, class: "btn btn-primary" %>
+      </div>
+    </div>
     </div>
   </ul>
+  <%= link_to 'Review', review_employer_job_path(@job)%>
   <%= link_to 'Back', jobs_path, class: "btn btn-primary" %>
 </div>
+

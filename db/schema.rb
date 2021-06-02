@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_172106) do
+ActiveRecord::Schema.define(version: 2021_06_02_135922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_172106) do
     t.float "employer_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "job_done"
     t.index ["offer_id"], name: "index_jobs_on_offer_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
