@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :offers
   resources :jobs, only: [:index, :create, :show] do
     member do
-      get :review_employer
-      get :review_freelancer      
+      get :edit
+      patch :update
     end
   end
   get '/my_offers', to: 'pages#my_offers', as: 'my_offers'
