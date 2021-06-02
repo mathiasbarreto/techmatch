@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :offers
   has_many :jobs
+  has_one_attached :photo
 
   validates :username, uniqueness: true, presence: true
 
@@ -26,4 +27,18 @@ class User < ApplicationRecord
     end
     return avg
   end
+
+  def profile_picture
+    if photo.attached?
+      photo
+    else
+      "robot.png"
+    end
+  end
+
+  # <% if current_user.photo.attached? %>
+  #           <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  #         <% else %>
+  #           <%= image_tag "robot.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  #         <% end %>
 end
