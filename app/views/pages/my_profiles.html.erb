@@ -1,7 +1,7 @@
 <div class="container my-5 pt-2">
   <div class="card">
     <div class="card-header">
-      Account <%= link_to 'Edit Account', edit_user_registration_path, class: "ml-3" %>
+      Account
     </div>
     <div class="card-body">
       <h5 class="card-title">Username</h5>
@@ -10,7 +10,8 @@
       <p class="card-text mb-4"><%= current_user.email %></p>
       <h5 class="card-title">Skills</h5>
       <p class="card-text mb-4"><%= current_user.skills %></p>
-      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "mt-2" %>
+      <%= link_to 'Edit Account', edit_user_registration_path, class: "btn", style: "color: white"  %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
