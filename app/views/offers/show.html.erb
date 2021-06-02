@@ -6,7 +6,7 @@
       <p class="card-text"><%= @offer.description %></p>
       <h6 class="card-subtitle mb-2 text-muted">$<%= @offer.price %></h6>
       <!-- Link below won't work, job routes and controller still to do -->
-      <% if current_user.id != @offer.user_id %>
+      <% if current_user.id != @offer.user_id && !@offer.fulfilled? %>
         <%= button_to 'Accept Offer', jobs_path, params: { offer_id: @offer.id } %>
       <% end %>
       <% if current_user.id == @offer.user_id %>
@@ -18,3 +18,4 @@
   <%= link_to 'Back', offers_path, class: "btn btn-primary" %>
 
 </div>
+

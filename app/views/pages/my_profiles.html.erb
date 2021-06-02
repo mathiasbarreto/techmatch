@@ -8,7 +8,10 @@
       <p class="card-text"><%= current_user.username %></p>
       <h5 class="card-title">Email</h5>
       <p class="card-text mb-4"><%= current_user.email %></p>
-      <%= link_to 'Close Account', destroy_user_session_path, method: :delete, class: "mt-2" %>
+      <h5 class="card-title">Skills</h5>
+      <p class="card-text mb-4"><%= current_user.skills %></p>
+      <%= link_to 'Edit Account', edit_user_registration_path, class: "btn", style: "color: white"  %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
