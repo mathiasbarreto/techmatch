@@ -24,7 +24,7 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to job_path(@job)
     else
-      redirect_to offer_path(offer_id)
+      redirect_to offer_path(@job.offer)
     end
   end
 
