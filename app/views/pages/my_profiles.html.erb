@@ -13,6 +13,10 @@
       <p class="card-text mb-4"><%= current_user.skills %></p>
       <h5 class="card-title">Profile summary</h5>
       <p class="card-text mb-4"><%= current_user.profile_summary %></p>
+      <h5 class="card-title">Employer Rating</h5>
+      <p class="card-text mb-4"><%= current_user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i></p>
+      <h5 class="card-title">Contractor Rating</h5>
+      <p class="card-text mb-4"><%= current_user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i></p>
       <%= link_to 'Edit Account', edit_user_registration_path, class: "btn", style: "color: white"  %>
       <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
     </div>
