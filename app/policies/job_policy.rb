@@ -17,7 +17,8 @@ class JobPolicy < ApplicationPolicy
     record.user == user
   end
   def create?
-    record.user == user && !record.offer.fulfilled?
+    true
+    #record.user == user && !record.offer.fulfilled?
   end
 
   def show?
