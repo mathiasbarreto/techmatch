@@ -21,6 +21,16 @@
         <li></li>
       </div>
     </div>
+    <div class="card-profile mt-3">
+      <div class="card-profile-infos">
+        <h2>Ratings:</h2>
+        <li>Contractor rating: <%= @user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i></li>
+        <li>Employer rating: <%= @user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </div>
+    </div>
   </ul>
   <%= link_to 'Back', :back, class: "btn btn-primary" %>
 </div>

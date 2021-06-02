@@ -8,4 +8,22 @@ class User < ApplicationRecord
   has_many :jobs
 
   validates :username, uniqueness: true, presence: true
+
+  def employer_rating_avg
+    avg = 0
+    unless jobs.empty?
+      jobs.each { |job| avg += job.employer_rating }
+      avg /= jobs.size
+    end
+    return avg
+  end
+
+  def contractor_rating_avg
+    avg = 0
+    unless jobs.empty?
+      jobs.each { |job| avg += job.contractor_rating }
+      avg /= jobs.size
+    end
+    return avg
+  end
 end
