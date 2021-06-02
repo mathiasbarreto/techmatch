@@ -1,9 +1,15 @@
-<h1>Submit a Review for the job</h1>
+<div class="container my-4">
+  <h1>Submit a Review for the job</h1>
 
-<%= simple_form_for(@job, class: 'table') do |f| %>
-  <%= f.input :contractor_rating %>  <!-- pode ser legal uma lógica aqui pra mostrar os tipos de review a depender do tipo de usuário, se é contractor ou employer -->
-  <%= f.input :contractor_review %>
-  <%= f.input :employer_rating %>
-  <%= f.input :employer_review %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for(@job, class: 'table') do |f| %>
+    <% if current_user == @job.user # Contractor %>
+      <%= f.input :employer_rating %>
+      <%= f.input :employer_review %>
+    <% end %>
+    <% if current_user == @job.offer.user #Employer %>
+      <%= f.input :contractor_rating %>
+      <%= f.input :contractor_review %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</div>

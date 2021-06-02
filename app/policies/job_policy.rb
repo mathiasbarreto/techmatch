@@ -5,6 +5,10 @@ class JobPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    record.user == user || record.offer.user == user
+  end
+
   def review_employer?
     record.user == user
   end
