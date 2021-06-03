@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
   get '/my_offers', to: 'pages#my_offers', as: 'my_offers'
-  get '/my_jobs', to: 'pages#my_jobs', as: 'my_jobs'
   get '/my_profiles', to: 'pages#my_profiles', as: 'my_profiles'
   get '/all_users', to: 'pages#all_users', as: 'all_users'
   get '/all_users/:id', to: 'pages#show_user', as: 'show_user'
