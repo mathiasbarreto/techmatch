@@ -3,35 +3,38 @@
     <h1>Job Details</h1>
     <p><%= link_to 'Back', :back, class: "btn btn-primary ml-4" %></p>
   </div>
-  <div class="card text-center mt-4">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <div class="clickable">
-          <li class="nav-item">
-            <a class="nav-link active">Title</a>
-          </li>
-        </div>
-        <div class="clickable">
-          <li class="nav-item">
-            <a class="nav-link">Description</a>
-          </li>
-        </div>
-        <div class="clickable">
-          <li class="nav-item">
-            <a class="nav-link">Users</a>
-          </li>
-        </div>
-        <div class="clickable">
-          <li class="nav-item">
-            <a class="nav-link">Price</a>
-          </li>
-        </div>
-      </ul>
-    </div>
+  <div class="card my-4">
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <div class="card-title border-bottom">
+        <h2><%= @job.offer.title %></h2>
+      </div>
+      <div class="desc mb-4">
+        <p><strong>Job description:</strong></p>
+        <%= @job.offer.description %></p>
+      </div>
+      <div class="price mb-4">
+        <p class="mb-2"><strong>Job value:</strong></p>
+        <h6>$<%= @job.offer.price %></h6>
+      </div>
+      <div class="created_at mb-4">
+        <p class="mb-2"><strong>Published by:</strong></p>
+        <h6><%= @job.offer.user.username.capitalize %></h6>
+        <%= @job.offer.user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+      </div>
+      <div class="created_at mb-4">
+        <p class="mb-2"><strong>Freelancer:</strong></p>
+        <h6><%= @job.user.username.capitalize %></h6>
+        <%= @job.user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+      </div>
+       <div class="created_at mb-4">
+        <p class="mb-2"><strong>Start date:</strong></p>
+        <h6><%= @job.start_date %></h6>
+      </div>
+      <div class="created_at mb-4">
+        <br>
+        <%= link_to @job.done? ? 'Job is done, click here to add/edit a review' : 'Mark job as finished',
+            edit_job_path(@job), class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>
-

@@ -11,17 +11,19 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
 
   def employer_rating_avg
-    unless jobs.empty?
-      total = jobs.reduce(0.0) { |total, job| job.employer_rating.nil? ? total : total += job.employer_rating }
-      total / jobs.select { |job| not job.employer_rating.nil? }.size
-    end
+    return "Not rated yet" if jobs.empty?
+
+    total_rating = jobs.reduce(0.0) { |total, job| job.employer_rating.nil? ? total : total += job.employer_rating }
+    avg = total_rating / jobs.reject { |job| job.employer_rating.nil? }.size
+    avg.nan? ? "Not Rated yet" : avg
   end
 
   def contractor_rating_avg
-    unless jobs.empty?
-      total = jobs.reduce(0.0) { |total, job| job.contractor_rating.nil? ? total : total += job.contractor_rating }
-      total / jobs.select { |job| not job.contractor_rating.nil? }.size
-    end
+    return "Not rated yet" if jobs.empty?
+
+    total_rating = jobs.reduce(0.0) { |total, job| job.contractor_rating.nil? ? total : total += job.contractor_rating }
+    avg = total_rating / jobs.reject { |job| job.contractor_rating.nil? }.size
+    avg.nan? ? "Not rated yet" : avg
   end
 
   def profile_picture

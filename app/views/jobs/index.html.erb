@@ -2,8 +2,8 @@
   <h1>My Projects</h1>
   <ul class="list-group mb-4 pt-3">
     <% @jobs.each do |job| %>
-      <div class="card-product mt-3">
-        <div class="card-product-infos">
+      <div class="card mt-3">
+        <div class="card-body">
           <h3><%= link_to job.offer.title, job_path(job) %></h3>
           <h5><strong class="mr-1">Project Owner:</strong><%= job.offer.user.username.capitalize %></h5>
           <h5><strong class="mr-1">Freelancer:</strong><%= job.user.username.capitalize %></h5>
