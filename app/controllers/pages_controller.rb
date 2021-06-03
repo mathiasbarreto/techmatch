@@ -20,7 +20,11 @@ class PagesController < ApplicationController
 
   def all_users
     skip_authorization
-    @users = User.all
+    if params[:query].present?
+      @users = User.where("skills ILIKE ?", "%#{params[:query]}%")
+    else
+      @users = User.all
+    end
   end
 
   def show_user
