@@ -15,21 +15,23 @@
   </div>
   <ul class="list-group mb-4 pt-3">
     <% @users.each do |user| %>
-  <div class="card mb-3" style= "max-height: 280px">
+  <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4 d-flex align-items-center pl-5">
         <%= image_tag user.profile_picture, class: "img-fluid"%>
       </div>
-      <div class="col-md-8 py-2">
+      <div class="col-md-8 pb-2">
         <div class="card-body">
-          <h3 id='name-card' class="card-title font-weight-bold"><%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %></h3>
-          <p><%= user.email %></p>
-          <p><strong>Skills:</strong><br>
+          <h3 id='name-card' class="card-title font-weight-bold mb-0">
+            <%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %>
+          </h3>
+          <p class="mb-3"><%= user.email %></p>
+          <p class="mb-3"><strong>Skills:</strong><br>
             <%=user.skills%>
           </p>
           <p><strong>Profile Summary:</strong></p>
           <%= user.profile_summary%>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mt-3">
             <div class="contractor_rating">
               <p><strong>Contractor Rating:</strong></p>
               <p><%= user.contractor_rating_avg %>
