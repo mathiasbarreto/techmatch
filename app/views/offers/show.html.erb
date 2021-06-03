@@ -8,7 +8,7 @@
       <% if current_user.id != @offer.user_id && !@offer.fulfilled? %>
         <%= button_to 'Accept Offer', jobs_path, params: { offer_id: @offer.id } %>
       <% end %>
-      <% if current_user.id == @offer.user_id && !@offer.fulfilled? %>
+      <% if policy(@offer).update? %>
         <%= link_to 'Edit', edit_offer_path(@offer) %> |
         <%= link_to 'Remove', offer_path, method: :delete %>
       <% end %>
