@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
     total_rating = jobs.reduce(0.0) { |total, job| job.employer_rating.nil? ? total : total += job.employer_rating }
     avg = (total_rating / jobs.reject { |job| job.employer_rating.nil? }.size).round(1)
-    avg.nan? ? "Not Rated yet" : avg
+    avg.nan? ? "Not rated yet" : avg
   end
 
   def contractor_rating_avg
