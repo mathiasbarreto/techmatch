@@ -14,7 +14,7 @@ class User < ApplicationRecord
     return "Not rated yet" if jobs.empty?
 
     total_rating = jobs.reduce(0.0) { |total, job| job.employer_rating.nil? ? total : total += job.employer_rating }
-    avg = total_rating / jobs.reject { |job| job.employer_rating.nil? }.size
+    avg = (total_rating / jobs.reject { |job| job.employer_rating.nil? }.size).round(1)
     avg.nan? ? "Not rated yet" : avg
   end
 
@@ -22,7 +22,7 @@ class User < ApplicationRecord
     return "Not rated yet" if jobs.empty?
 
     total_rating = jobs.reduce(0.0) { |total, job| job.contractor_rating.nil? ? total : total += job.contractor_rating }
-    avg = total_rating / jobs.reject { |job| job.contractor_rating.nil? }.size
+    avg = (total_rating / jobs.reject { |job| job.contractor_rating.nil? }.size).round(1)
     avg.nan? ? "Not rated yet" : avg
   end
 
