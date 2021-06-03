@@ -5,9 +5,9 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.references :offer, null: false, foreign_key: true
       t.date :start_date
       t.text :contractor_review
-      t.float :contractor_rating, default: 0
+      t.float :contractor_rating
       t.text :employer_review
-      t.float :employer_rating, default: 0
+      t.float :employer_rating
 
       t.timestamps
     end
