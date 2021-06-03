@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2021_06_02_222418) do
     t.bigint "offer_id", null: false
     t.date "start_date"
     t.text "contractor_review"
-    t.float "contractor_rating"
+    t.float "contractor_rating", default: 0.0
     t.text "employer_review"
-    t.float "employer_rating"
+    t.float "employer_rating", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "finish_date"
