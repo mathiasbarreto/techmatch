@@ -4,6 +4,7 @@ class OffersController < ApplicationController
 
   def index
     @offers = policy_scope(Offer)
+    @offers = @offers.reject { |offer| offer.fulfilled? }
     if params[:query].present?
       sql_query = "title ILIKE :query OR description ILIKE :query"
       @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
