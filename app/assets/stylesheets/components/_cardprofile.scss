@@ -1,6 +1,6 @@
 .card-profile {
   overflow: hidden;
-  height: 120px;
+  height: 250px;
   background: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
@@ -25,4 +25,14 @@
 
 .card-profile .card-profile-infos {
   padding: 10px;
+}
+#name-card {
+  text-transform: uppercase;
+}
+
+a {
+  color: #005f73;
+}
+a:hover {
+  color: #2a9d8f;
 }

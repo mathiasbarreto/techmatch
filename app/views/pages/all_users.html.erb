@@ -5,7 +5,8 @@
       <div class="card-product pl-3 mt-3">
         <%= image_tag user.profile_picture, class: "avatar-square" %>
         <div class="card-product-infos">
-          <h3><%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %></h3>
+          <h3 id='name-card'><%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %></h3>
+          <p><%= user.email %></p>
           <p><strong>Skills:</strong><br>
             <%=user.skills%>
           </p>
