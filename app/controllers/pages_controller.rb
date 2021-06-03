@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   def all_users
     skip_authorization
     if params[:query].present?
-      sql_query = "skills ILIKE :query OR profile_summary ILIKE :query"
+      sql_query = "skills @@ :query OR profile_summary @@ :query"
       @users = User.where(sql_query, query: "%#{params[:query]}%")
     else
       @users = User.all
