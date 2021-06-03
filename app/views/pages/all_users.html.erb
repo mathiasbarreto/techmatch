@@ -13,22 +13,36 @@
   <h1>Freelancers profiles</h1>
   <ul class="list-group mb-4 pt-3">
     <% @users.each do |user| %>
-      <div class="card-product pl-3 mt-3">
-        <%= image_tag user.profile_picture, class: "avatar-square" %>
-        <div class="card-product-infos">
-          <h3 id='name-card'><%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %></h3>
+  <div class="card mb-3" style= "max-height: 280px">
+    <div class="row g-0">
+      <div class="col-md-4 d-flex align-items-center pl-5">
+        <%= image_tag user.profile_picture, class: "img-fluid"%>
+      </div>
+      <div class="col-md-8 py-2">
+        <div class="card-body">
+          <h3 id='name-card' class="card-title font-weight-bold"><%= link_to user.username, show_user_path(user), style: "text-decoration: none;" %></h3>
           <p><%= user.email %></p>
           <p><strong>Skills:</strong><br>
             <%=user.skills%>
           </p>
           <p><strong>Profile Summary:</strong></p>
           <%= user.profile_summary%>
-          <p><strong>Contractor Rating:</strong></p>
-          <%= user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
-          <p><strong>Employer Rating:</strong></p>
-          <%= user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+          <div class="d-flex justify-content-between">
+            <div class="contractor_rating">
+              <p><strong>Contractor Rating:</strong></p>
+              <p><%= user.contractor_rating_avg %>
+              <i class="fas fa-star pl-2" , style="color: #FDCC0D;"></i></p>
+            </div>
+            <div class="employer_rating pr-2">
+              <p><strong>Employer Rating:</strong></p>
+              <p><%= user.employer_rating_avg %>
+              <i class="fas fa-star pl-2" , style="color: #FDCC0D;"></i></p>
+            </div>
+          </div>
         </div>
       </div>
-    <% end %>
+    </div>
+  </div>
+  <% end %>
   </ul>
 </div>
