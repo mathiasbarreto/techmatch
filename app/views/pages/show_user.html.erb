@@ -24,20 +24,36 @@
       </div>
     </div>
     <div class="card mt-3">
-      <div class="card-body">
-        <h4>Reviews:</h4>
-        <% @user.jobs.each do |job| %>
-          <%= job.employer_review %>
-        <% end %>
+      <div class="card-body d-flex justify-content-between mt-3 pt-1">
+        <div class="row d-flex align-items-center ml-1">
+          <div class="title mr-5">
+            <h4>Ratings:</h4>
+          </div>
+          <div class="contractor mr-4">
+            Contractor rating: <%= @user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+          </div>
+          <div class="employer">
+            Employer rating: <%= @user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+          </div>
+        </div>
       </div>
     </div>
     <div class="card mt-3">
-      <div class="card-body d-flex justify-content-between mt-3 pt-1">
-        <h4>Ratings:</h4>
-        Contractor rating: <%= @user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
-        Employer rating: <%= @user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+      <div class="card-body">
+        <h4>Reviews:</h4>
+        <% @user.jobs.each do |job| %>
+          <% unless job.contractor_review.nil? %>
+            <h6>As Freelancer:</h6>
+            <p>- <%= job.contractor_review %> | employer:<em> <%= job.offer.user.username %> </em></p>
+          <% end %>
+          <% unless job.employer_review.nil? %>
+          <h6>As contractor:</h6>
+          <p>- <%= job.employer_review %> | freelancer:<em> <%= job.user.username %> </em></p>
+          <% end %>
+        <% end %>
       </div>
     </div>
+
   </ul>
   <%= link_to 'Back', :back, class: "btn btn-primary" %>
 </div>
