@@ -1,45 +1,16 @@
 <div class="container my-4">
-  <h1>All accepted jobs</h1>
+  <h1>My Projects</h1>
   <ul class="list-group mb-4 pt-3">
     <% @jobs.each do |job| %>
       <div class="card-product mt-3">
         <div class="card-product-infos">
-          <h4><%= job.offer.title %></h3>
-          <p><strong> <%= link_to 'Freelancer', show_user_path(job.user) %></strong><br> 
-            <%= job.user.username %>
-          </p>
-          <p><strong>Price</strong></p>
-          U$ <%= job.offer.price %>
+          <h3><%= link_to job.offer.title, job_path(job) %></h3>
+          <h5><strong class="mr-1">Project Owner:</strong><%= job.offer.user.username.capitalize %></h5>
+          <h5><strong class="mr-1">Freelancer:</strong><%= job.user.username.capitalize %></h5>
+          <p><strong>Preço</strong></p>
+          R$ <%= job.offer.price %>
         </div>
       </div>
     <% end %>
   </ul>
 </div>
-
-<!-- table version, if we like it more
-  <h1>All accepted jobs</h1>
-<table class = 'table table-striped'>
-  <%= current_user.username %>
-  <thead>
-    <tr>
-      <th>Nome do projeto</th>
-      <th>Freelancer</th>
-      <th>Descrição</th>
-      <th>Data de início</th>
-      <th>Preço</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @jobs.each do |job| %>
-  <tr> 
-    <td><%= job.offer.title %>  </td> 
-    <td> <%= job.user.username %> </td>
-    <td> <%= job.offer.description %> </td>
-    <td><%= job.start_date %> </td>
-    <td> R$ <%=job.offer.price %> </td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
-
--->

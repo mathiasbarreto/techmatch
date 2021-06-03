@@ -4,7 +4,8 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit]
 
   def index
-    @jobs = policy_scope(Job)
+    skip_policy_scope
+    @jobs = Job.all.select { |job| job.offer.user == current_user || job.user == current_user }
   end
 
   def edit
