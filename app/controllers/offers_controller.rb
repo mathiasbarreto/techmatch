@@ -9,7 +9,7 @@ class OffersController < ApplicationController
       sql_query = "title @@ :query OR description @@ :query"
       @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
     else
-      @offers = Offer.all
+      @offers = @offers.reject { |offer| offer.fulfilled? }
     end
   end
 
