@@ -3,11 +3,11 @@
 
   <%= simple_form_for(@job, class: 'table') do |f| %>
     <% if current_user == @job.user # Contractor %>
-      <%= f.input :employer_rating, label: 'Please rate the employer' %>
+      <%= f.input :employer_rating, label: 'Please rate the employer', collection: 0..10 %>
       <%= f.input :employer_review, label: 'Please review the employer' %>
     <% end %>
     <% if current_user == @job.offer.user #Employer %>
-      <%= f.input :contractor_rating, label: 'Please rate the contractor' %>
+      <%= f.input :contractor_rating, label: 'Please rate the contractor', collection: 0..10 %>
       <%= f.input :contractor_review, label: 'Please review the contractor' %>
     <% end %>
     <%= f.submit %>
