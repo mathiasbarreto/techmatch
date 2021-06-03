@@ -11,28 +11,20 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
 
   def employer_rating_avg
-    avg = 0
     unless jobs.empty?
-      jobs.each { |job| avg += job.employer_rating }
-      avg /= jobs.size
+      total = jobs.reduce(0.0) { |total, job| job.employer_rating.nil? ? total : total += job.employer_rating }
+      total / jobs.select { |job| not job.employer_rating.nil? }.size
     end
-    return avg
   end
 
   def contractor_rating_avg
-    avg = 0
     unless jobs.empty?
-      jobs.each { |job| avg += job.contractor_rating }
-      avg /= jobs.size
+      total = jobs.reduce(0.0) { |total, job| job.contractor_rating.nil? ? total : total += job.contractor_rating }
+      total / jobs.select { |job| not job.contractor_rating.nil? }.size
     end
-    return avg
   end
 
   def profile_picture
-    if photo.attached?
-      photo
-    else
-      "robot.png"
-    end
+    photo.attached? ? photo : 'robot.png'
   end
 end
