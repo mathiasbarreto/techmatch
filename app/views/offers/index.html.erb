@@ -1,17 +1,39 @@
+<!-- search form -->
+<%= form_tag offers_path, class: 'mt-3 container', method: :get do %>
+<div class = 'd-flex'>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a offer by your top skills"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary ml-2" %>
+</div>
+<% end %>
+
+<!-- results page -->
+
 <div class="container my-4">
-  <h1>Offers</h1>
+  <div class="header text-center p-3 rounded-3" style="background-color: #b7e4c7">
+    <h1>Offers</h1>
+  </div>
   <ul class="list-group mb-4 pt-3">
     <% @offers.each do |offer| %>
-      <div class="card-product mt-3">
-        <div class="card-product-infos ml-1">
-          <li class="list-group-item mb-2">
+      <div class="card mt-3">
+        <div class="card-body ml-1">
+          <div class="card-title border-bottom">
             <h2><%=link_to offer.title, offer_path(offer)%>,
-             by <%= link_to offer.user.username, show_user_path(offer.user) %></h2>
-          </li>
-          <p><strong>Offer description:</strong></p>
-          <%= offer.description %>
-          <p><strong>Offer value:</strong></p>
-          U$ <%= offer.price%>
+            by <%= link_to offer.user.username, show_user_path(offer.user) %></h2>
+          </div>
+          <div class="card-content">
+            <div class="desc mb-4">
+              <p><strong>Offer description:</strong></p>
+              <%= offer.description %>
+            </div>
+            <div class="price">
+              <p><strong>Offer value:</strong></p>
+              U$ <%= offer.price%>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>

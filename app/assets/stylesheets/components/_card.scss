@@ -12,11 +12,17 @@
 }
 
 .card p {
-  font-size: 12px;
+  font-size: 15px;
   opacity: .7;
-  margin: 20px;
+  margin: 0;
 }
 
+.card-title {
+  text-transform: capitalize;
+}
+.header {
+  text-transform: capitalize;
+}
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
