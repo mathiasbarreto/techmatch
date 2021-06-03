@@ -1,10 +1,28 @@
 <div class="container mt-3">
-  <h1><%= @offer.title %> details</h1>
-  <div class="card my-4" style="width: 18rem;">
+  <div class="header text-center p-3 rounded-3" style="background-color: #b7e4c7">
+    <h1><%= @offer.title %><strong> details</strong></h1>
+  </div>
+  <div class="card my-4">
     <div class="card-body">
-      <h5 class="card-title"><%= @offer.title %></h5>
-      <p class="card-text"><%= @offer.description %></p>
-      <h6 class="card-subtitle mb-2 text-muted">$<%= @offer.price %></h6>
+      <div class="card-title border-bottom">
+        <h2><%= @offer.title %></h2>
+      </div>
+      <div class="desc mb-4">
+        <p><strong>Offer description:</strong></p>
+        <%= @offer.description %></p>
+      </div>
+      <div class="price mb-4">
+        <p><strong>Offer value:</strong></p>
+        <h6>$<%= @offer.price %></h6>
+      </div>
+      <div class="created_at mb-4">
+        <p><strong>Published by:</strong></p>
+        <%= @offer.user.username %>
+      </div>
+      <div class="created_at mb-4">
+        <p><strong>Created on:</strong></p>
+        <h6><%= @offer.created_at.to_formatted_s(:long_ordinal)  %></h6>
+      </div>
       <% if current_user.id != @offer.user_id && !@offer.fulfilled? %>
         <%= button_to 'Accept Offer', jobs_path, params: { offer_id: @offer.id } %>
       <% end %>
