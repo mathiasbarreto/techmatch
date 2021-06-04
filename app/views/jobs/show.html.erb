@@ -19,12 +19,20 @@
       <div class="created_at mb-4">
         <p class="mb-2"><strong>Published by:</strong></p>
         <h6><%= @job.offer.user.username.capitalize %></h6>
-        <%= @job.offer.user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+        <% if @job.contractor_rating.nil? %>
+          Rating for this job: Not rated yet
+        <% else %>
+          Rating for this job: <%= @job.contractor_rating %> <div class="stars" style="--rating: <%= @job.contractor_rating %>;"></div>
+        <% end %>
       </div>
       <div class="created_at mb-4">
         <p class="mb-2"><strong>Freelancer:</strong></p>
         <h6><%= @job.user.username.capitalize %></h6>
-        <%= @job.user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+        <% if @job.employer_rating.nil? %>
+          Rating for this job: Not rated yet
+        <% else %>
+          Rating for this job: <%= @job.employer_rating %> <div class="stars" style="--rating: <%= @job.employer_rating %>;"></div>
+        <% end %>
       </div>
        <div class="created_at mb-4">
         <p class="mb-2"><strong>Start date:</strong></p>
