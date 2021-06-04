@@ -40,15 +40,26 @@
     </div>
     <div class="card mt-3">
       <div class="card-body">
-        <h4>Reviews:</h4>
-        <% @user.jobs.each do |job| %>
-          <% unless job.contractor_review.nil? %>
-            <h6>As Freelancer:</h6>
-            <p>- <%= job.contractor_review %> | employer:<em> <%= job.offer.user.username %> </em></p>
+        <div class="review pb-2">
+          <h4>Reviews:</h4>
+        </div>
+        <div class="freelancer mb-4">
+          <h6>As Freelancer:</h6>
+          <% @user.jobs.each do |job| %>
+            <% if job.contractor_review.nil? %>
+              Not rated yet
+            <% else %>
+              <p>- <%= job.contractor_review %> | employer:<em> <%= job.offer.user.username %> </em></p>
+            <% end %>
           <% end %>
-          <% unless job.employer_review.nil? %>
-          <h6>As contractor:</h6>
-          <p>- <%= job.employer_review %> | freelancer:<em> <%= job.user.username %> </em></p>
+        </div>
+        <h6>As Employer:</h6>
+        <% jobs = Job.all.select { |job| job.offer.user == @user } %>
+        <% jobs.each do |job| %>
+          <% if job.employer_review.nil? %>
+            Not rated yet
+          <% else %>
+            <p>- <%= job.employer_review %> | <%= job.user.username %>
           <% end %>
         <% end %>
       </div>
