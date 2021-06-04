@@ -109,4 +109,11 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # config/environments/production.rb
+  if ENV['REDISCLOUD_URL']
+    config.cache_store = :redis_store, ENV['REDISCLOUD_URL'], { expires_in: 1.day }
+    config.action_controller.enable_fragment_cache_logging = true # you can remove this line once you made sure caching works on Heroku
+  end
 end
+
+
