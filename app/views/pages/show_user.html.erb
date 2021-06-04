@@ -49,7 +49,7 @@
             <% if job.contractor_review.nil? %>
               Not rated yet
             <% else %>
-              <p>- <%= job.contractor_review %> | employer:<em> <%= job.offer.user.username %> </em></p>
+              <p>- <%= job.contractor_review %> | <strong>Employer:</strong><em> <%= job.offer.user.username %> </em></p>
             <% end %>
           <% end %>
         </div>
@@ -59,7 +59,7 @@
           <% if job.employer_review.nil? %>
             Not rated yet
           <% else %>
-            <p>- <%= job.employer_review %> | <%= job.user.username %>
+            <p>- <%= job.employer_review %> | <strong>Freelancer:</strong><em> <%= job.user.username %></em></p>
           <% end %>
         <% end %>
       </div>
