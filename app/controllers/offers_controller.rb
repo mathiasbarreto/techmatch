@@ -7,7 +7,7 @@ class OffersController < ApplicationController
     @offers = @offers.reject(&:fulfilled?)
     if params[:query].present?
       sql_query = "title @@ :query OR description @@ :query"
-      @offers = Offer.where(sql_query, query: "%#{params[:query]}%").page params[:page]
+      @offers = Offer.where(sql_query, query: "%#{params[:query]}%").page(params[:page])
     else
       @offers = Kaminari.paginate_array(@offers.reject(&:fulfilled?)).page(params[:page])
     end

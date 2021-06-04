@@ -13,12 +13,12 @@
 
   <body>
     <div id="page-container">
-      <%= render 'shared/navbar' %>
+      <%= render 'shared/navbar', cached: true %>
       <div id="content-wrap">
         <%= yield %>
       </div>
-      <%= render 'shared/flashes' %>
-      <%= render 'shared/footer' %>
+      <%= render 'shared/flashes', cached: true %>
+      <%= render 'shared/footer', cached: true %>
     </div>
   </body>
 </html>
