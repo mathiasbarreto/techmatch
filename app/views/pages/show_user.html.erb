@@ -30,10 +30,10 @@
             <h4>Ratings:</h4>
           </div>
           <div class="contractor mr-4">
-            Contractor rating: <%= @user.contractor_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+            Rating as Contractor: <div class="stars" style="--rating: <%= @user.contractor_rating_avg%>;"></div>
           </div>
           <div class="employer">
-            Employer rating: <%= @user.employer_rating_avg %><i class="fas fa-star ml-1" , style="color: #FDCC0D;"></i>
+            Rating as Employer: <div class="stars" style="--rating: <%= @user.employer_rating_avg%>;"></div>
           </div>
         </div>
       </div>
