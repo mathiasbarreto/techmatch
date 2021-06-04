@@ -4,12 +4,12 @@ class OffersController < ApplicationController
 
   def index
     @offers = policy_scope(Offer)
-    @offers = @offers.reject { |offer| offer.fulfilled? }
+    @offers = @offers.reject(&:fulfilled?)
     if params[:query].present?
       sql_query = "title @@ :query OR description @@ :query"
-      @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
+      @offers = Offer.where(sql_query, query: "%#{params[:query]}%").page params[:page]
     else
-      @offers = @offers.reject { |offer| offer.fulfilled? }
+      @offers = Kaminari.paginate_array(@offers.reject(&:fulfilled?)).page(params[:page])
     end
   end
 

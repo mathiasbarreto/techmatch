@@ -41,4 +41,5 @@
   <% if policy(Offer).create? %>
     <%= link_to "Add Offer", new_offer_path(current_user), class: "btn btn-primary" %>
   <% end %>
+  <%= paginate @offers %>
 </div>
