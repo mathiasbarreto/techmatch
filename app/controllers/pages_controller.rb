@@ -17,9 +17,9 @@ class PagesController < ApplicationController
     skip_authorization
     if params[:query].present?
       sql_query = "skills @@ :query OR profile_summary @@ :query"
-      @users = User.where(sql_query, query: "%#{params[:query]}%")
+      @users = Kaminari.paginate_array(User.where(sql_query, query: "%#{params[:query]}%")).page(params[:page])
     else
-      @users = User.all
+      @users = User.order(:username).page params[:page]
     end
   end
 
