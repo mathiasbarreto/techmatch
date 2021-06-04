@@ -9,8 +9,8 @@
           <h3><%= link_to job.offer.title, job_path(job) %></h3>
           <h5><strong class="mr-1">Employer:</strong><%= job.offer.user.username.capitalize %></h5>
           <h5><strong class="mr-1">Freelancer:</strong><%= job.user.username.capitalize %></h5>
-          <p><strong>Preço</strong></p>
-          R$ <%= job.offer.price %>
+          <p><strong>Price</strong></p>
+          $ <%= job.offer.price %>
         </div>
       </div>
     <% end %>
