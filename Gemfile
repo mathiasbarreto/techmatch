@@ -28,6 +28,8 @@ gem 'pundit'
 
 # Add pagination
 gem 'kaminari', '~> 1.2.1'
+# Heroku redis support
+gem 'redis-rails', '~> 5.0.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
