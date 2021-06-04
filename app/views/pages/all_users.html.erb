@@ -35,14 +35,12 @@
                   <%= user.profile_summary%>
                   <div class="d-flex justify-content-between mt-3">
                     <div class="contractor_rating">
-                      <p><strong>Contractor Rating:</strong></p>
-                      <p><%= user.contractor_rating_avg %>
-                      <i class="fas fa-star pl-2" , style="color: #FDCC0D;"></i></p>
+                      <p><strong>Rating as Contractor:</strong></p>
+                      <div class="stars" style="--rating: <%= user.contractor_rating_avg%>;"></div>
                     </div>
                     <div class="employer_rating pr-2">
-                      <p><strong>Employer Rating:</strong></p>
-                      <p><%= user.employer_rating_avg %>
-                      <i class="fas fa-star pl-2" , style="color: #FDCC0D;"></i></p>
+                      <p><strong>Rating as Employer:</strong></p>
+                      <div class="stars" style="--rating: <%= user.employer_rating_avg%>;"></div>
                     </div>
                   </div>
                 </div>
