@@ -30,10 +30,10 @@
             <h4>Ratings:</h4>
           </div>
           <div class="contractor mr-4">
-            Rating as Contractor: <div class="stars" style="--rating: <%= @user.contractor_rating_avg%>;"></div>
+            As Freelancer: <div class="stars" style="--rating: <%= @user.contractor_rating_avg%>;"></div>
           </div>
           <div class="employer">
-            Rating as Employer: <div class="stars" style="--rating: <%= @user.employer_rating_avg%>;"></div>
+            As Employer: <div class="stars" style="--rating: <%= @user.employer_rating_avg%>;"></div>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
             <% if job.contractor_review.nil? %>
               Not rated yet
             <% else %>
-              <p>- <%= job.contractor_review %> | <strong>Employer:</strong><em> <%= job.offer.user.username %> </em></p>
+              <p>- <%= job.contractor_review %> | <strong>Employer:</strong><em> <%= link_to job.offer.user.username, show_user_path(job.offer.user) %></em></p>
             <% end %>
           <% end %>
         </div>
@@ -59,7 +59,7 @@
           <% if job.employer_review.nil? %>
             Not rated yet
           <% else %>
-            <p>- <%= job.employer_review %> | <strong>Freelancer:</strong><em> <%= job.user.username %></em></p>
+            <p>- <%= job.employer_review %> | <strong>Freelancer:</strong><em> <%= link_to job.user.username, show_user_path(job.user) %></em></p>
           <% end %>
         <% end %>
       </div>

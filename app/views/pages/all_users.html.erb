@@ -35,12 +35,12 @@
                   <%= user.profile_summary%>
                   <div class="d-flex justify-content-between mt-3">
                     <div class="contractor_rating">
-                      <p><strong>Rating as Contractor:</strong></p>
-                      <div class="stars" style="--rating: <%= user.contractor_rating_avg%>;"></div>
-                    </div>
-                    <div class="employer_rating pr-2">
                       <p><strong>Rating as Employer:</strong></p>
                       <div class="stars" style="--rating: <%= user.employer_rating_avg%>;"></div>
+                    </div>
+                    <div class="employer_rating pr-2">
+                      <p><strong>Rating as Freelancer:</strong></p>
+                      <div class="stars" style="--rating: <%= user.contractor_rating_avg%>;"></div>
                     </div>
                   </div>
                 </div>
