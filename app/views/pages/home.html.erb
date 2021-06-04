@@ -1,11 +1,10 @@
-<div class="banner" style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>);">
-  <div class="container">
-    <p>The right <strong>skills</strong> for the right <strong>project</strong></p>
+<div class="banner" style="height: 600px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('best-freelancer.jpg') %>);">
+  <div class="container mt-5">
+    <p> Hire the <strong>best freelancer </strong> to <strong>  <span id="banner-typed-text"></span></strong></p> 
   </div>
 </div>
 <div class="container text-center mt-4 mx-auto mb-5">
-  <h1>Let's find your match!</h1>
-  <div class="content d-flex justify-content-center mt-5">
+  <div class="content d-flex justify-content-center mt-2">
     <div class='button mx-2'>
       <%= link_to 'Find a freelance', all_users_path, class: "btn btn-primary" %>
     </div>
@@ -13,6 +12,8 @@
       <%= link_to 'Find a project', offers_path, class: "btn btn-primary" %>
     </div>
   </div>
+  <br>
+  <h1>Let's find your match!</h1>
   <div class="row d-flex justify-content-center mt-5 ">
     <div class="col-3 col-lg-3 card-home mr-3">
       <div class="card-body w-100">
