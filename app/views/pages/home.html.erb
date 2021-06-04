@@ -1,17 +1,18 @@
-<div class="banner d-flex align-items-center justify-content-center" style="height: 600px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('best-freelancer.jpg') %>);">
-  <div class=" content align-items-center justify-content-center pb-5">
+<div class="banner d-flex flex-column align-items-center justify-content-center" style="height: 600px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('best-freelancer.jpg') %>);">
+  <div class=" content row align-items-center justify-content-center ">
     <h1> Hire the <strong>best freelancer </strong> to <strong>  <span id="banner-typed-text"></span></strong></h1> 
+  </div>
+  <br>
+  <div class="content row d-flex justify-content-center pt-10">
+    <div class='button mx-2'>
+      <%= link_to 'Find a freelance', all_users_path, class: "btn btn-primary btn-lg banner-button1" %>
+    </div>
+    <div class='button mx-2'>
+      <%= link_to 'Find a project', offers_path, class: "btn btn-primary btn-lg banner-button2" %>
+    </div>
   </div>
 </div>
 <div class="container text-center mt-4 mx-auto mb-5">
-  <div class="content d-flex justify-content-center mt-2">
-    <div class='button mx-2'>
-      <%= link_to 'Find a freelance', all_users_path, class: "btn btn-primary btn-lg" %>
-    </div>
-    <div class='button mx-2'>
-      <%= link_to 'Find a project', offers_path, class: "btn btn-primary btn-lg" %>
-    </div>
-  </div>
   <br>
   <h2>Let's find your match!</h2>
   <div class="row d-flex justify-content-center mt-5 ">

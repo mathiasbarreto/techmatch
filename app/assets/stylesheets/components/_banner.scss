@@ -13,5 +13,28 @@
 .banner h1 {
   font-size: 40px;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0);
+}
+
+
+.banner-button1 {
+  background-color: #2a9d8f!important;
+  border-color: #2a9d8f !important; 
+
+}
+
+.banner-button2 {
+  background-color: rgba(0,0,0,0) !important;
+  border-color: white !important; 
+}
+
+
+.banner-button1:hover {
+  color: #d8f3dc !important;
+
+}
+
+.banner-button2:hover {
+  color: #d8f3dc !important;
+  
 }
