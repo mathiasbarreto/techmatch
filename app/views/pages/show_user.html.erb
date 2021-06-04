@@ -46,9 +46,7 @@
         <div class="freelancer mb-4">
           <h6>As Freelancer:</h6>
           <% @user.jobs.each do |job| %>
-            <% if job.contractor_review.nil? %>
-              Not rated yet
-            <% else %>
+            <% unless job.contractor_review.nil? %>
               <p>- <%= job.contractor_review %> | <strong>Employer:</strong><em> <%= link_to job.offer.user.username, show_user_path(job.offer.user) %></em></p>
             <% end %>
           <% end %>
@@ -56,9 +54,7 @@
         <h6>As Employer:</h6>
         <% jobs = Job.all.select { |job| job.offer.user == @user } %>
         <% jobs.each do |job| %>
-          <% if job.employer_review.nil? %>
-            Not rated yet
-          <% else %>
+          <% unless job.employer_review.nil? %>
             <p>- <%= job.employer_review %> | <strong>Freelancer:</strong><em> <%= link_to job.user.username, show_user_path(job.user) %></em></p>
           <% end %>
         <% end %>
