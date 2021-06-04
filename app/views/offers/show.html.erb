@@ -17,7 +17,8 @@
       </div>
       <div class="created_at mb-4">
         <p><strong>Published by:</strong></p>
-        <%= @offer.user.username %>
+        <h6 class="mt-2"><%= link_to @offer.user.username, show_user_path(@offer.user) %></h6>
+        Rating: <%= @offer.user.employer_rating_avg %> <div class="stars" style="--rating: <%= @offer.user.employer_rating_avg %>;"></div>
       </div>
       <div class="created_at mb-4">
         <p><strong>Created on:</strong></p>
